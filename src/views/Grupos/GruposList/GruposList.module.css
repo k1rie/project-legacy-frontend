@@ -1,0 +1,332 @@
+.container {
+  animation: pageEnter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  gap: 2rem;
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.header h1 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.6s ease;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.createButton {
+  background-color: var(--accent);
+  color: var(--text-white);
+  padding: 0.625rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(10, 102, 230, 0.2);
+  animation: fadeInUp 0.6s ease 0.2s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.createButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.createButton:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.createButton:hover {
+  background-color: rgba(10, 102, 230, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(10, 102, 230, 0.3);
+}
+
+.createButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(10, 102, 230, 0.2);
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem;
+  animation: scaleIn 0.4s ease;
+}
+
+.error {
+  color: var(--accent-red);
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+.retryButton {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent);
+  color: var(--text-white);
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+}
+
+.retryButton:hover {
+  background-color: rgba(10, 102, 230, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(10, 102, 230, 0.3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #1A1A1A;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  animation: cardSlideIn 0.5s ease both;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.card:hover {
+  background-color: #1F1F1F;
+  border-color: rgba(10, 102, 230, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.cardVisual {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--card-color, #0A66E6), rgba(19, 173, 208, 0.6));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1), transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(19, 173, 208, 0.2), transparent 50%);
+  opacity: 0.6;
+}
+
+.cardIcon {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.cardContent {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.cardHeader h2 {
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  gap: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.card:hover .actions {
+  opacity: 1;
+}
+
+.editButton,
+.deleteButton {
+  background: transparent;
+  border: none;
+  padding: 0.375rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.editButton:hover {
+  background: rgba(10, 102, 230, 0.1);
+  color: var(--accent);
+  opacity: 1;
+}
+
+.deleteButton:hover {
+  background: rgba(255, 107, 107, 0.1);
+  color: var(--accent-red);
+  opacity: 1;
+}
+
+.cardBody {
+  color: var(--text-secondary);
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.label {
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.value {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.description {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
