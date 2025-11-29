@@ -1,6 +1,9 @@
 // API Configuration
 export const API_BASE_URL = 'https://charming-cassie-k1rie-45484dd5.koyeb.app/api';
 
+// Frontend base URL for public links
+export const FRONTEND_BASE_URL = typeof window !== 'undefined' ? window.location.origin : '';
+
 export const API_ENDPOINTS = {
   grupos: {
     getAll: () => `${API_BASE_URL}/grupos`,

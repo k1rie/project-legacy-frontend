@@ -17,8 +17,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* Rutas públicas (sin layout) */}
-          <Route path="/api/apuntes/publico/:link" element={<ApuntePublico />} />
-          <Route path="/api/tareas/publico/:link" element={<TareaPublica />} />
+          <Route path="/apuntes/publico/:link" element={<ApuntePublico />} />
+          <Route path="/tareas/publico/:link" element={<TareaPublica />} />
           
           {/* Rutas con layout */}
           <Route path="/" element={<Layout />}>

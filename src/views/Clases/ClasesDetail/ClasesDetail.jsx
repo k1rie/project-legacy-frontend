@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Edit, Trash2, Users, GitBranch, Sparkles, BookOpen, Clock, Target, FileText, Trash, Play, CheckCircle2, ClipboardList, Copy, ExternalLink, Maximize2 } from 'lucide-react';
 import { API_BASE_URL } from '../../../services/apiService';
+import { FRONTEND_BASE_URL } from '../../../config/api';
 import { useToast } from '../../../contexts/ToastContext';
 import Loading from '../../../components/Loading/Loading';
 import FlowCanvas from '../../../components/FlowCanvas/FlowCanvas';
@@ -308,7 +309,7 @@ function ClasesDetail() {
   };
 
   const copyLink = (link, tipo) => {
-    const fullLink = `${API_BASE_URL}/${tipo}/publico/${link}`;
+    const fullLink = `${FRONTEND_BASE_URL}/${tipo}/publico/${link}`;
     navigator.clipboard.writeText(fullLink);
     showToast('Link copiado al portapapeles', 'success');
   };
@@ -564,7 +565,7 @@ function ClasesDetail() {
                     <div className={styles.linkDisplay}>
                       <ExternalLink size={14} />
                       <span className={styles.linkText}>
-                        {`${API_BASE_URL}/apuntes/publico/${apunte.link_unico}`}
+                        {`${FRONTEND_BASE_URL}/apuntes/publico/${apunte.link_unico}`}
                       </span>
                     </div>
                     <button
@@ -648,7 +649,7 @@ function ClasesDetail() {
                     <div className={styles.linkDisplay}>
                       <ExternalLink size={14} />
                       <span className={styles.linkText}>
-                        {`${API_BASE_URL}/tareas/publico/${tarea.link_unico}`}
+                        {`${FRONTEND_BASE_URL}/tareas/publico/${tarea.link_unico}`}
                       </span>
                     </div>
                     <button
