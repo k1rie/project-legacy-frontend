@@ -44,7 +44,7 @@ function GruposForm() {
     { id: 'descripcion', label: 'Descripción' },
     { id: 'color', label: 'Color' },
     { id: 'icon', label: 'Icono' },
-    { id: 'generate', label: 'Generar Flow' },
+    { id: 'generate', label: 'Crear Grupo' },
   ];
 
   const totalSteps = steps.length;
@@ -301,7 +301,7 @@ function GruposForm() {
             </div>
           </div>
 
-          {/* Step 5: Generar Flow */}
+          {/* Step 5: Crear Grupo */}
           <div className={`${styles.slide} ${currentStep === 5 ? styles.active : ''}`}>
             <div className={styles.slideContent}>
               <div className={styles.generateSection}>
@@ -310,7 +310,7 @@ function GruposForm() {
                 </div>
                 <h2 className={styles.slideTitle}>¡Todo listo!</h2>
                 <p className={styles.slideDescription}>
-                  Tu grupo está configurado. Ahora puedes generar el flujo de clases con IA
+                  Tu grupo está configurado. Revisa la información y crea tu grupo
                 </p>
                 
                 <div className={styles.preview}>
@@ -342,7 +342,7 @@ function GruposForm() {
                   disabled={loading}
                 >
                   <Wand2 size={20} />
-                  {loading ? 'Guardando...' : 'Generar Flow con IA'}
+                  {loading ? 'Guardando...' : 'Crear Grupo'}
                 </button>
               </div>
             </div>
